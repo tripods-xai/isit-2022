@@ -1,0 +1,74 @@
+[
+    {
+        "sigma": 0.8413951416451951,
+        "snr": 1.4999999999999991,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 60000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 181,
+        "number_errors": 300,
+        "bit_error_rate": 5e-05,
+        "block_error_rate": 0.0030166666666666666,
+        "runtime": 4688.225036382675
+    },
+    {
+        "sigma": 0.7943282347242815,
+        "snr": 1.9999999999999998,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 60000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 66,
+        "number_errors": 94,
+        "bit_error_rate": 1.5666666666666667e-05,
+        "block_error_rate": 0.0011,
+        "runtime": 4369.604539394379
+    },
+    {
+        "sigma": 0.7498942093324559,
+        "snr": 2.499999999999999,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 60000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 32,
+        "number_errors": 39,
+        "bit_error_rate": 6.5e-06,
+        "block_error_rate": 0.0005333333333333334,
+        "runtime": 4155.932077169418
+    },
+    {
+        "sigma": 0.7079457843841379,
+        "snr": 3.0000000000000004,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 60000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 21,
+        "number_errors": 28,
+        "bit_error_rate": 4.666666666666666e-06,
+        "block_error_rate": 0.00035,
+        "runtime": 3870.4479422569275
+    }
+]

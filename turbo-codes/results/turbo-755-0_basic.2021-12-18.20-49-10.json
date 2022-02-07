@@ -1,0 +1,1537 @@
+[
+  {
+    "test_number": 0,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": { "sigma": 1.4125375446227544, "snr": -3.0, "name": "AWGN" },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.12368714,
+      "bler": 0.991352,
+      "total_bit_errors": 12368714.0,
+      "total_block_errors": 991352,
+      "num_blocks": 1000000,
+      "runtime": 471.94775223731995
+    }
+  },
+  {
+    "test_number": 1,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 1.333521432163324,
+          "snr": -2.4999999999999996,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.08650387,
+      "bler": 0.972444,
+      "total_bit_errors": 8650387.0,
+      "total_block_errors": 972444,
+      "num_blocks": 1000000,
+      "runtime": 396.58868646621704
+    }
+  },
+  {
+    "test_number": 2,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": { "sigma": 1.2589254117941673, "snr": -2.0, "name": "AWGN" },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.05868252,
+      "bler": 0.93114,
+      "total_bit_errors": 5868252.0,
+      "total_block_errors": 931140,
+      "num_blocks": 1000000,
+      "runtime": 398.6795701980591
+    }
+  },
+  {
+    "test_number": 3,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 1.1885022274370185,
+          "snr": -1.5000000000000002,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.03749492,
+      "bler": 0.853956,
+      "total_bit_errors": 3749492.0,
+      "total_block_errors": 853956,
+      "num_blocks": 1000000,
+      "runtime": 402.72494626045227
+    }
+  },
+  {
+    "test_number": 4,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 1.1220184543019636,
+          "snr": -1.0000000000000009,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.02254599,
+      "bler": 0.730488,
+      "total_bit_errors": 2254599.0,
+      "total_block_errors": 730488,
+      "num_blocks": 1000000,
+      "runtime": 398.9008786678314
+    }
+  },
+  {
+    "test_number": 5,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 1.0592537251772889,
+          "snr": -0.49999999999999956,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.01409816,
+      "bler": 0.586753,
+      "total_bit_errors": 1409816.0,
+      "total_block_errors": 586753,
+      "num_blocks": 1000000,
+      "runtime": 400.15980982780457
+    }
+  },
+  {
+    "test_number": 6,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": { "sigma": 1.0, "snr": -0.0, "name": "AWGN" },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00814396,
+      "bler": 0.428446,
+      "total_bit_errors": 814396.0,
+      "total_block_errors": 428446,
+      "num_blocks": 1000000,
+      "runtime": 395.57346367836
+    }
+  },
+  {
+    "test_number": 7,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.9440608762859234,
+          "snr": 0.49999999999999983,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00493514,
+      "bler": 0.29788,
+      "total_bit_errors": 493514.0,
+      "total_block_errors": 297880,
+      "num_blocks": 1000000,
+      "runtime": 420.5535216331482
+    }
+  },
+  {
+    "test_number": 8,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.8912509381337456,
+          "snr": 0.9999999999999993,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00262089,
+      "bler": 0.183464,
+      "total_bit_errors": 262089.0,
+      "total_block_errors": 183464,
+      "num_blocks": 1000000,
+      "runtime": 428.4637234210968
+    }
+  },
+  {
+    "test_number": 9,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.8413951416451951,
+          "snr": 1.4999999999999991,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.0013585,
+      "bler": 0.105751,
+      "total_bit_errors": 135850.0,
+      "total_block_errors": 105751,
+      "num_blocks": 1000000,
+      "runtime": 428.5805947780609
+    }
+  },
+  {
+    "test_number": 10,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.7943282347242815,
+          "snr": 1.9999999999999998,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00068207,
+      "bler": 0.057043,
+      "total_bit_errors": 68207.0,
+      "total_block_errors": 57043,
+      "num_blocks": 1000000,
+      "runtime": 438.33852458000183
+    }
+  },
+  {
+    "test_number": 11,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.7498942093324559,
+          "snr": 2.499999999999999,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00033256,
+      "bler": 0.029005,
+      "total_bit_errors": 33256.0,
+      "total_block_errors": 29005,
+      "num_blocks": 1000000,
+      "runtime": 431.29998302459717
+    }
+  },
+  {
+    "test_number": 12,
+    "model_id": "turbo-755-0_basic.2021-12-18.20-49-10",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "noninterleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [1.0, 0.0],
+                [0.0, 1.0]
+              ],
+              [
+                [1.0, 1.0],
+                [0.0, 0.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [2, 3],
+                [0, 1],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 0]
+                ],
+                [
+                  [0, 1],
+                  [2, 1]
+                ],
+                [
+                  [1, 0],
+                  [3, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": {
+          "sigma": 0.7079457843841379,
+          "snr": 3.0000000000000004,
+          "name": "AWGN"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboNonsystematicEncoderDecoderSettings"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 0.00015299,
+      "bler": 0.013688,
+      "total_bit_errors": 15299.0,
+      "total_block_errors": 13688,
+      "num_blocks": 1000000,
+      "runtime": 432.7537519931793
+    }
+  }
+]

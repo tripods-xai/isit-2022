@@ -1,0 +1,1013 @@
+{
+    "settings": {
+        "model_id": "turbo-random-7_hazzys_6a6b8493_2021-12-31.12-08-08",
+        "loss": "cross_entropy_with_logits",
+        "optimizer": {
+            "name": "SGD",
+            "learning_rate": 1000000.0,
+            "decay": 0.0,
+            "momentum": 0.0,
+            "nesterov": false
+        },
+        "block_len": 100,
+        "batch_size": 1024,
+        "write_results_to_log": true,
+        "logdir": "./training_logs/",
+        "tz": "America/Chicago",
+        "write_to_tensorboard": false,
+        "tensorboard_dir": "./tensorboard/"
+    },
+    "initial_encoder_decoder": {
+        "systematic_code": {
+            "trellis": {
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "output_table": [
+                    [
+                        [
+                            0.0,
+                            0.7069464921951294
+                        ],
+                        [
+                            1.0,
+                            0.6804978847503662
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            0.5596376657485962
+                        ],
+                        [
+                            1.0,
+                            0.6583727598190308
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            0.9404653310775757
+                        ],
+                        [
+                            1.0,
+                            0.7771114110946655
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            0.6125540733337402
+                        ],
+                        [
+                            1.0,
+                            0.12297821044921875
+                        ]
+                    ]
+                ]
+            },
+            "num_states": 4,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": true,
+            "name": "TrellisCode_5fdffdc3"
+        },
+        "interleaved_code": {
+            "trellis": {
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "output_table": [
+                    [
+                        [
+                            0.7069464921951294
+                        ],
+                        [
+                            0.6804978847503662
+                        ]
+                    ],
+                    [
+                        [
+                            0.5596376657485962
+                        ],
+                        [
+                            0.6583727598190308
+                        ]
+                    ],
+                    [
+                        [
+                            0.9404653310775757
+                        ],
+                        [
+                            0.7771114110946655
+                        ]
+                    ],
+                    [
+                        [
+                            0.6125540733337402
+                        ],
+                        [
+                            0.12297821044921875
+                        ]
+                    ]
+                ]
+            },
+            "num_states": 4,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": true,
+            "name": "TrellisCode_64add668"
+        },
+        "interleaver": {
+            "block_len": 100,
+            "name": "RandomPermuteInterleaver_66148de2"
+        },
+        "channel": {
+            "sigma": 1.0,
+            "snr": -0.0,
+            "name": "AWGN_5e196727"
+        },
+        "decoder": {
+            "decoder1": {
+                "trellis": {
+                    "state_transitions": {
+                        "next_states": [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                3,
+                                2
+                            ],
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                2,
+                                3
+                            ]
+                        ],
+                        "previous_states": [
+                            [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    1
+                                ]
+                            ],
+                            [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    2,
+                                    0
+                                ]
+                            ],
+                            [
+                                [
+                                    1,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    0
+                                ]
+                            ],
+                            [
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    3,
+                                    1
+                                ]
+                            ]
+                        ]
+                    },
+                    "output_table": [
+                        [
+                            [
+                                0.0,
+                                0.7069464921951294
+                            ],
+                            [
+                                1.0,
+                                0.6804978847503662
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.5596376657485962
+                            ],
+                            [
+                                1.0,
+                                0.6583727598190308
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.9404653310775757
+                            ],
+                            [
+                                1.0,
+                                0.7771114110946655
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.6125540733337402
+                            ],
+                            [
+                                1.0,
+                                0.12297821044921875
+                            ]
+                        ]
+                    ]
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN_5e196727"
+                },
+                "use_max": false,
+                "num_input_channels": 2,
+                "num_output_channels": 1,
+                "name": "BCJRDecoder_0123a5fd"
+            },
+            "decoder2": {
+                "trellis": {
+                    "state_transitions": {
+                        "next_states": [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                3,
+                                2
+                            ],
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                2,
+                                3
+                            ]
+                        ],
+                        "previous_states": [
+                            [
+                                [
+                                    0,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    1
+                                ]
+                            ],
+                            [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    2,
+                                    0
+                                ]
+                            ],
+                            [
+                                [
+                                    1,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    0
+                                ]
+                            ],
+                            [
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    3,
+                                    1
+                                ]
+                            ]
+                        ]
+                    },
+                    "output_table": [
+                        [
+                            [
+                                0.0,
+                                0.7069464921951294
+                            ],
+                            [
+                                1.0,
+                                0.6804978847503662
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.5596376657485962
+                            ],
+                            [
+                                1.0,
+                                0.6583727598190308
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.9404653310775757
+                            ],
+                            [
+                                1.0,
+                                0.7771114110946655
+                            ]
+                        ],
+                        [
+                            [
+                                0.0,
+                                0.6125540733337402
+                            ],
+                            [
+                                1.0,
+                                0.12297821044921875
+                            ]
+                        ]
+                    ]
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN_5e196727"
+                },
+                "use_max": false,
+                "num_input_channels": 2,
+                "num_output_channels": 1,
+                "name": "BCJRDecoder_a8bd029c"
+            },
+            "interleaver": {
+                "block_len": 100,
+                "name": "RandomPermuteInterleaver_66148de2"
+            },
+            "num_iter": 6,
+            "num_noninterleaved_streams": 2,
+            "num_input_channels": 4,
+            "num_output_channels": 1,
+            "name": "HazzysTurboDecoder_db56f42d"
+        },
+        "rate": [
+            1,
+            3
+        ],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "turbo-random-7_hazzys_6a6b8493"
+    },
+    "history": [
+        {
+            "epoch": 0,
+            "training": {
+                "ber_mean": 0.016621092334389687,
+                "ber_var": 0.000752003223169595,
+                "bler_mean": 0.3636067807674408,
+                "bler_var": 0.23141667246818542,
+                "encoded_mean": 0.0014295924920588732,
+                "encoded_var": 0.9874154329299927,
+                "loss_mean": 0.05796850845217705,
+                "loss_var": 0.32595425844192505
+            },
+            "validation": {
+                "ber_mean": 0.014335935935378075,
+                "ber_var": 0.0005219437298364937,
+                "bler_mean": 0.38671875,
+                "bler_var": 0.23739919066429138,
+                "encoded_mean": 0.00452803960070014,
+                "encoded_var": 0.9858972430229187,
+                "loss_mean": 0.04674733802676201,
+                "loss_var": 0.23141160607337952
+            },
+            "model": {
+                "systematic_code": {
+                    "trellis": {
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "output_table": [
+                            [
+                                [
+                                    0.0,
+                                    0.7069464921951294
+                                ],
+                                [
+                                    1.0,
+                                    0.6804978847503662
+                                ]
+                            ],
+                            [
+                                [
+                                    0.0,
+                                    0.5596376657485962
+                                ],
+                                [
+                                    1.0,
+                                    0.6583727598190308
+                                ]
+                            ],
+                            [
+                                [
+                                    0.0,
+                                    0.9404653310775757
+                                ],
+                                [
+                                    1.0,
+                                    0.7771114110946655
+                                ]
+                            ],
+                            [
+                                [
+                                    0.0,
+                                    0.6125540733337402
+                                ],
+                                [
+                                    1.0,
+                                    0.12297821044921875
+                                ]
+                            ]
+                        ]
+                    },
+                    "num_states": 4,
+                    "num_inputs": 2,
+                    "num_input_channels": 1,
+                    "num_output_channels": 2,
+                    "normalize_output_table": true,
+                    "name": "TrellisCode_5fdffdc3"
+                },
+                "interleaved_code": {
+                    "trellis": {
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "output_table": [
+                            [
+                                [
+                                    0.7069464921951294
+                                ],
+                                [
+                                    0.6804978847503662
+                                ]
+                            ],
+                            [
+                                [
+                                    0.5596376657485962
+                                ],
+                                [
+                                    0.6583727598190308
+                                ]
+                            ],
+                            [
+                                [
+                                    0.9404653310775757
+                                ],
+                                [
+                                    0.7771114110946655
+                                ]
+                            ],
+                            [
+                                [
+                                    0.6125540733337402
+                                ],
+                                [
+                                    0.12297821044921875
+                                ]
+                            ]
+                        ]
+                    },
+                    "num_states": 4,
+                    "num_inputs": 2,
+                    "num_input_channels": 1,
+                    "num_output_channels": 1,
+                    "normalize_output_table": true,
+                    "name": "TrellisCode_64add668"
+                },
+                "interleaver": {
+                    "block_len": 100,
+                    "name": "RandomPermuteInterleaver_66148de2"
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN_5e196727"
+                },
+                "decoder": {
+                    "decoder1": {
+                        "trellis": {
+                            "state_transitions": {
+                                "next_states": [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        2
+                                    ],
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        3
+                                    ]
+                                ],
+                                "previous_states": [
+                                    [
+                                        [
+                                            0,
+                                            0
+                                        ],
+                                        [
+                                            2,
+                                            1
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            0,
+                                            1
+                                        ],
+                                        [
+                                            2,
+                                            0
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            1,
+                                            1
+                                        ],
+                                        [
+                                            3,
+                                            0
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            1,
+                                            0
+                                        ],
+                                        [
+                                            3,
+                                            1
+                                        ]
+                                    ]
+                                ]
+                            },
+                            "output_table": [
+                                [
+                                    [
+                                        0.0,
+                                        0.7069464921951294
+                                    ],
+                                    [
+                                        1.0,
+                                        0.6804978847503662
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.5596376657485962
+                                    ],
+                                    [
+                                        1.0,
+                                        0.6583727598190308
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.9404653310775757
+                                    ],
+                                    [
+                                        1.0,
+                                        0.7771114110946655
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.6125540733337402
+                                    ],
+                                    [
+                                        1.0,
+                                        0.12297821044921875
+                                    ]
+                                ]
+                            ]
+                        },
+                        "channel": {
+                            "sigma": 1.0,
+                            "snr": -0.0,
+                            "name": "AWGN_5e196727"
+                        },
+                        "use_max": false,
+                        "num_input_channels": 2,
+                        "num_output_channels": 1,
+                        "name": "BCJRDecoder_0123a5fd"
+                    },
+                    "decoder2": {
+                        "trellis": {
+                            "state_transitions": {
+                                "next_states": [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        2
+                                    ],
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        3
+                                    ]
+                                ],
+                                "previous_states": [
+                                    [
+                                        [
+                                            0,
+                                            0
+                                        ],
+                                        [
+                                            2,
+                                            1
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            0,
+                                            1
+                                        ],
+                                        [
+                                            2,
+                                            0
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            1,
+                                            1
+                                        ],
+                                        [
+                                            3,
+                                            0
+                                        ]
+                                    ],
+                                    [
+                                        [
+                                            1,
+                                            0
+                                        ],
+                                        [
+                                            3,
+                                            1
+                                        ]
+                                    ]
+                                ]
+                            },
+                            "output_table": [
+                                [
+                                    [
+                                        0.0,
+                                        0.7069464921951294
+                                    ],
+                                    [
+                                        1.0,
+                                        0.6804978847503662
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.5596376657485962
+                                    ],
+                                    [
+                                        1.0,
+                                        0.6583727598190308
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.9404653310775757
+                                    ],
+                                    [
+                                        1.0,
+                                        0.7771114110946655
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0.0,
+                                        0.6125540733337402
+                                    ],
+                                    [
+                                        1.0,
+                                        0.12297821044921875
+                                    ]
+                                ]
+                            ]
+                        },
+                        "channel": {
+                            "sigma": 1.0,
+                            "snr": -0.0,
+                            "name": "AWGN_5e196727"
+                        },
+                        "use_max": false,
+                        "num_input_channels": 2,
+                        "num_output_channels": 1,
+                        "name": "BCJRDecoder_a8bd029c"
+                    },
+                    "interleaver": {
+                        "block_len": 100,
+                        "name": "RandomPermuteInterleaver_66148de2"
+                    },
+                    "num_iter": 6,
+                    "num_noninterleaved_streams": 2,
+                    "num_input_channels": 4,
+                    "num_output_channels": 1,
+                    "name": "HazzysTurboDecoder_db56f42d"
+                },
+                "rate": [
+                    1,
+                    3
+                ],
+                "block_len": 100,
+                "use_max": false,
+                "num_iter": 6,
+                "name": "turbo-random-7_hazzys_6a6b8493"
+            }
+        }
+    ]
+}

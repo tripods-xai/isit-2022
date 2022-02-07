@@ -1,0 +1,1 @@
+[{"sigma": 1.0, "snr": -0.0, "settings": {"encoder_name": "modified_basic", "decoder_name": "modified_basic", "num_block": 1, "block_len": 100, "num_decoder_iterations": 100, "num_cpu": 12}, "number_block_errors": 1, "number_errors": 8, "bit_error_rate": 0.08, "block_error_rate": 1.0, "runtime": 1.0794146060943604}]

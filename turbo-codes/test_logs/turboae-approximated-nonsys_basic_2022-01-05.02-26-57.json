@@ -1,0 +1,4256 @@
+[
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {"sigma": 1.4125375446227544, "snr": -3, "name": "AWGN"},
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1.4125375446227544, "snr": -3, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1.4125375446227544, "snr": -3, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.23984624445438385,
+      "ber_var": 0.015779301524162292,
+      "bler_mean": 0.9655061364173889,
+      "bler_var": 0.03330419957637787,
+      "cross_entropy_mean": 0.48181161284446716,
+      "cross_entropy_var": 0.36001768708229065,
+      "encoded_mean": 0.5000858306884766,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.333521432163324,
+        "snr": -2.4999999999999996,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.333521432163324,
+            "snr": -2.4999999999999996,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.333521432163324,
+            "snr": -2.4999999999999996,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.1784403920173645,
+      "ber_var": 0.018327975645661354,
+      "bler_mean": 0.8858840465545654,
+      "bler_var": 0.10109367966651917,
+      "cross_entropy_mean": 0.383579820394516,
+      "cross_entropy_var": 0.4536035656929016,
+      "encoded_mean": 0.49997028708457947,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {"sigma": 1.2589254117941673, "snr": -2, "name": "AWGN"},
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1.2589254117941673, "snr": -2, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1.2589254117941673, "snr": -2, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.1140240728855133,
+      "ber_var": 0.016376789659261703,
+      "bler_mean": 0.7282258868217468,
+      "bler_var": 0.19791314005851746,
+      "cross_entropy_mean": 0.26484110951423645,
+      "cross_entropy_var": 0.47264379262924194,
+      "encoded_mean": 0.4999845027923584,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.1885022274370185,
+        "snr": -1.5000000000000002,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1885022274370185,
+            "snr": -1.5000000000000002,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1885022274370185,
+            "snr": -1.5000000000000002,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.05997755378484726,
+      "ber_var": 0.010461841709911823,
+      "bler_mean": 0.5133309364318848,
+      "bler_var": 0.2498224675655365,
+      "cross_entropy_mean": 0.15312553942203522,
+      "cross_entropy_var": 0.39506179094314575,
+      "encoded_mean": 0.5000455975532532,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.1220184543019636,
+        "snr": -1.0000000000000009,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1220184543019636,
+            "snr": -1.0000000000000009,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1220184543019636,
+            "snr": -1.0000000000000009,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.024987107142806053,
+      "ber_var": 0.004540007095783949,
+      "bler_mean": 0.3049790859222412,
+      "bler_var": 0.21196699142456055,
+      "cross_entropy_mean": 0.07181751728057861,
+      "cross_entropy_var": 0.25476473569869995,
+      "encoded_mean": 0.4999772608280182,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.0592537251772889,
+        "snr": -0.49999999999999956,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.0592537251772889,
+            "snr": -0.49999999999999956,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.0592537251772889,
+            "snr": -0.49999999999999956,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.008255339227616787,
+      "ber_var": 0.001305158482864499,
+      "bler_mean": 0.157151997089386,
+      "bler_var": 0.13245539367198944,
+      "cross_entropy_mean": 0.027691401541233063,
+      "cross_entropy_var": 0.13242055475711823,
+      "encoded_mean": 0.5000163912773132,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {"sigma": 1, "snr": 0, "name": "AWGN"},
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1, "snr": 0, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {"sigma": 1, "snr": 0, "name": "AWGN"},
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.0024174400605261326,
+      "ber_var": 0.00026752002304419875,
+      "bler_mean": 0.07425900548696518,
+      "bler_var": 0.06874466687440872,
+      "cross_entropy_mean": 0.00969245657324791,
+      "cross_entropy_var": 0.06076165661215782,
+      "encoded_mean": 0.5000656247138977,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.9440608762859234,
+        "snr": 0.49999999999999983,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.9440608762859234,
+            "snr": 0.49999999999999983,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.9440608762859234,
+            "snr": 0.49999999999999983,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.0007617099909111857,
+      "ber_var": 0.000045929733460070565,
+      "bler_mean": 0.03466399759054184,
+      "bler_var": 0.03346243128180504,
+      "cross_entropy_mean": 0.0035909446887671947,
+      "cross_entropy_var": 0.02806657738983631,
+      "encoded_mean": 0.49996647238731384,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.8912509381337456,
+        "snr": 0.9999999999999993,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8912509381337456,
+            "snr": 0.9999999999999993,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8912509381337456,
+            "snr": 0.9999999999999993,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.0002756699686869979,
+      "ber_var": 0.000008123312909447122,
+      "bler_mean": 0.015912000089883804,
+      "bler_var": 0.015658827498555183,
+      "cross_entropy_mean": 0.0014642563182860613,
+      "cross_entropy_var": 0.013777561485767365,
+      "encoded_mean": 0.49999380111694336,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.8413951416451951,
+        "snr": 1.4999999999999991,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8413951416451951,
+            "snr": 1.4999999999999991,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8413951416451951,
+            "snr": 1.4999999999999991,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.00011739000183297321,
+      "ber_var": 0.0000024327221126441145,
+      "bler_mean": 0.007590999361127615,
+      "bler_var": 0.007533382624387741,
+      "cross_entropy_mean": 0.0006814481457695365,
+      "cross_entropy_var": 0.0075906626880168915,
+      "encoded_mean": 0.49995893239974976,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7943282347242815,
+        "snr": 1.9999999999999998,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7943282347242815,
+            "snr": 1.9999999999999998,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7943282347242815,
+            "snr": 1.9999999999999998,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.00004965998596162535,
+      "ber_var": 8.617347475592396e-7,
+      "bler_mean": 0.0034810001961886883,
+      "bler_var": 0.00346888555213809,
+      "cross_entropy_mean": 0.00029757333686575294,
+      "cross_entropy_var": 0.003511832095682621,
+      "encoded_mean": 0.4999609887599945,
+      "encoded_var": 0.2499999701976776
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7498942093324559,
+        "snr": 2.499999999999999,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7498942093324559,
+            "snr": 2.499999999999999,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7498942093324559,
+            "snr": 2.499999999999999,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.000020870005755568855,
+      "ber_var": 3.320647579130309e-7,
+      "bler_mean": 0.0015550001990050077,
+      "bler_var": 0.0015525834169238806,
+      "cross_entropy_mean": 0.00013314302486833185,
+      "cross_entropy_var": 0.001797228935174644,
+      "encoded_mean": 0.5000141859054565,
+      "encoded_var": 0.25
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-approximated-nonsys_basic_2022-01-05.02-26-57",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "AffineConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7079457843841379,
+        "snr": 3.0000000000000004,
+        "name": "AWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7079457843841379,
+            "snr": 3.0000000000000004,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "AffineConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7079457843841379,
+            "snr": 3.0000000000000004,
+            "name": "AWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-approximated-nonsys_basic"
+    },
+    "scores": {
+      "ber_mean": 0.000009589997716830112,
+      "ber_var": 1.5100815176083415e-7,
+      "bler_mean": 0.0007429998950101435,
+      "bler_var": 0.000742448668461293,
+      "cross_entropy_mean": 0.00006061317981220782,
+      "cross_entropy_var": 0.0008315976592712104,
+      "encoded_mean": 0.4999607503414154,
+      "encoded_var": 0.2499999701976776
+    }
+  }
+]

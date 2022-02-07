@@ -1,0 +1,4 @@
+{
+    "python.linting.mypyEnabled": true,
+    "python.defaultInterpreterPath": "/home/abhmul/anaconda3/envs/turbo/bin/python"
+}

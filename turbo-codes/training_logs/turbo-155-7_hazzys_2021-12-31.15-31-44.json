@@ -1,0 +1,1005 @@
+{
+    "settings": {
+        "model_id": "turbo-155-7_hazzys_2021-12-31.15-31-44",
+        "loss": "cross_entropy_with_logits",
+        "optimizer": {
+            "name": "SGD",
+            "learning_rate": 0.001,
+            "decay": 0.0,
+            "momentum": 0.0,
+            "nesterov": false
+        },
+        "block_len": 100,
+        "batch_size": 1024,
+        "write_results_to_log": true,
+        "logdir": "./training_logs/",
+        "tz": "America/Chicago",
+        "write_to_tensorboard": true,
+        "tensorboard_dir": "./tensorboard/"
+    },
+    "initial_encoder_decoder": {
+        "systematic_code": {
+            "trellis": {
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "output_table": [
+                    [
+                        [
+                            0.0,
+                            0.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            0.0
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            0.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            0.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            0.0
+                        ]
+                    ]
+                ]
+            },
+            "num_states": 4,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": true,
+            "name": "GeneralizedConvolutionalCode_systematic"
+        },
+        "interleaved_code": {
+            "trellis": {
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "output_table": [
+                    [
+                        [
+                            0.0
+                        ],
+                        [
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            1.0
+                        ],
+                        [
+                            0.0
+                        ]
+                    ],
+                    [
+                        [
+                            0.0
+                        ],
+                        [
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            1.0
+                        ],
+                        [
+                            0.0
+                        ]
+                    ]
+                ]
+            },
+            "num_states": 4,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": true,
+            "name": "GeneralizedConvolutionalCode"
+        },
+        "interleaver": {
+            "block_len": 100,
+            "name": "RandomPermuteInterleaver"
+        },
+        "channel": {
+            "sigma": 1.0,
+            "snr": -0.0,
+            "name": "AWGN"
+        },
+        "decoder": {
+            "decoder1": {
+                "output_table": [
+                    [
+                        [
+                            -1.0,
+                            -1.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            -1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            -1.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            -1.0
+                        ]
+                    ]
+                ],
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN"
+                },
+                "use_max": false,
+                "num_input_channels": 2,
+                "num_output_channels": 1,
+                "name": "BCJRDecoder"
+            },
+            "decoder2": {
+                "output_table": [
+                    [
+                        [
+                            -1.0,
+                            -1.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            -1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            -1.0
+                        ],
+                        [
+                            1.0,
+                            1.0
+                        ]
+                    ],
+                    [
+                        [
+                            -1.0,
+                            1.0
+                        ],
+                        [
+                            1.0,
+                            -1.0
+                        ]
+                    ]
+                ],
+                "state_transitions": {
+                    "next_states": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            3,
+                            2
+                        ],
+                        [
+                            1,
+                            0
+                        ],
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    "previous_states": [
+                        [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                2,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                3,
+                                0
+                            ]
+                        ],
+                        [
+                            [
+                                1,
+                                0
+                            ],
+                            [
+                                3,
+                                1
+                            ]
+                        ]
+                    ]
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN"
+                },
+                "use_max": false,
+                "num_input_channels": 2,
+                "num_output_channels": 1,
+                "name": "BCJRDecoder"
+            },
+            "interleaver": {
+                "block_len": 100,
+                "name": "RandomPermuteInterleaver"
+            },
+            "num_iter": 6,
+            "num_noninterleaved_streams": 2,
+            "num_input_channels": 4,
+            "num_output_channels": 1,
+            "name": "HazzysTurboDecoder"
+        },
+        "rate": [
+            1,
+            3
+        ],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "turbo-155-7_hazzys"
+    },
+    "history": [
+        {
+            "epoch": 0,
+            "training": {
+                "ber_mean": 0.004585937596857548,
+                "ber_var": 0.0005644672783091664,
+                "bler_mean": 0.06113281100988388,
+                "bler_var": 0.05737739056348801,
+                "encoded_mean": -0.00045788357965648174,
+                "encoded_var": 0.999940812587738,
+                "loss_mean": 0.019133804365992546,
+                "loss_var": 0.22305622696876526
+            },
+            "validation": {
+                "ber_mean": 0.0020605470053851604,
+                "ber_var": 0.00020718701125588268,
+                "bler_mean": 0.0322265625,
+                "bler_var": 0.031218497082591057,
+                "encoded_mean": -0.0003776977537199855,
+                "encoded_var": 0.9999116063117981,
+                "loss_mean": 0.015408128499984741,
+                "loss_var": 0.3541329503059387
+            },
+            "model": {
+                "systematic_code": {
+                    "trellis": {
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "output_table": [
+                            [
+                                [
+                                    0.004692284390330315,
+                                    0.0058524589985609055
+                                ],
+                                [
+                                    1.0000128746032715,
+                                    1.000072717666626
+                                ]
+                            ],
+                            [
+                                [
+                                    -0.0011020274832844734,
+                                    0.9992774724960327
+                                ],
+                                [
+                                    0.9999698400497437,
+                                    -0.0018769261660054326
+                                ]
+                            ],
+                            [
+                                [
+                                    -0.0027352976612746716,
+                                    -0.000455488043371588
+                                ],
+                                [
+                                    0.9974306225776672,
+                                    0.9980217218399048
+                                ]
+                            ],
+                            [
+                                [
+                                    -0.000848027877509594,
+                                    1.0026090145111084
+                                ],
+                                [
+                                    1.002579689025879,
+                                    -0.0035009938292205334
+                                ]
+                            ]
+                        ]
+                    },
+                    "num_states": 4,
+                    "num_inputs": 2,
+                    "num_input_channels": 1,
+                    "num_output_channels": 2,
+                    "normalize_output_table": true,
+                    "name": "GeneralizedConvolutionalCode_systematic"
+                },
+                "interleaved_code": {
+                    "trellis": {
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "output_table": [
+                            [
+                                [
+                                    0.0006136809242889285
+                                ],
+                                [
+                                    1.0014389753341675
+                                ]
+                            ],
+                            [
+                                [
+                                    0.9983168840408325
+                                ],
+                                [
+                                    9.154039435088634e-05
+                                ]
+                            ],
+                            [
+                                [
+                                    0.00035032135201618075
+                                ],
+                                [
+                                    1.0007792711257935
+                                ]
+                            ],
+                            [
+                                [
+                                    0.9994640946388245
+                                ],
+                                [
+                                    -0.0010548010468482971
+                                ]
+                            ]
+                        ]
+                    },
+                    "num_states": 4,
+                    "num_inputs": 2,
+                    "num_input_channels": 1,
+                    "num_output_channels": 1,
+                    "normalize_output_table": true,
+                    "name": "GeneralizedConvolutionalCode"
+                },
+                "interleaver": {
+                    "block_len": 100,
+                    "name": "RandomPermuteInterleaver"
+                },
+                "channel": {
+                    "sigma": 1.0,
+                    "snr": -0.0,
+                    "name": "AWGN"
+                },
+                "decoder": {
+                    "decoder1": {
+                        "output_table": [
+                            [
+                                [
+                                    -1.0,
+                                    -1.0
+                                ],
+                                [
+                                    1.0,
+                                    1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    1.0
+                                ],
+                                [
+                                    1.0,
+                                    -1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    -1.0
+                                ],
+                                [
+                                    1.0,
+                                    1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    1.0
+                                ],
+                                [
+                                    1.0,
+                                    -1.0
+                                ]
+                            ]
+                        ],
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "channel": {
+                            "sigma": 1.0,
+                            "snr": -0.0,
+                            "name": "AWGN"
+                        },
+                        "use_max": false,
+                        "num_input_channels": 2,
+                        "num_output_channels": 1,
+                        "name": "BCJRDecoder"
+                    },
+                    "decoder2": {
+                        "output_table": [
+                            [
+                                [
+                                    -1.0,
+                                    -1.0
+                                ],
+                                [
+                                    1.0,
+                                    1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    1.0
+                                ],
+                                [
+                                    1.0,
+                                    -1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    -1.0
+                                ],
+                                [
+                                    1.0,
+                                    1.0
+                                ]
+                            ],
+                            [
+                                [
+                                    -1.0,
+                                    1.0
+                                ],
+                                [
+                                    1.0,
+                                    -1.0
+                                ]
+                            ]
+                        ],
+                        "state_transitions": {
+                            "next_states": [
+                                [
+                                    0,
+                                    1
+                                ],
+                                [
+                                    3,
+                                    2
+                                ],
+                                [
+                                    1,
+                                    0
+                                ],
+                                [
+                                    2,
+                                    3
+                                ]
+                            ],
+                            "previous_states": [
+                                [
+                                    [
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        2,
+                                        1
+                                    ]
+                                ],
+                                [
+                                    [
+                                        0,
+                                        1
+                                    ],
+                                    [
+                                        2,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        1
+                                    ],
+                                    [
+                                        3,
+                                        0
+                                    ]
+                                ],
+                                [
+                                    [
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        3,
+                                        1
+                                    ]
+                                ]
+                            ]
+                        },
+                        "channel": {
+                            "sigma": 1.0,
+                            "snr": -0.0,
+                            "name": "AWGN"
+                        },
+                        "use_max": false,
+                        "num_input_channels": 2,
+                        "num_output_channels": 1,
+                        "name": "BCJRDecoder"
+                    },
+                    "interleaver": {
+                        "block_len": 100,
+                        "name": "RandomPermuteInterleaver"
+                    },
+                    "num_iter": 6,
+                    "num_noninterleaved_streams": 2,
+                    "num_input_channels": 4,
+                    "num_output_channels": 1,
+                    "name": "HazzysTurboDecoder"
+                },
+                "rate": [
+                    1,
+                    3
+                ],
+                "block_len": 100,
+                "use_max": false,
+                "num_iter": 6,
+                "name": "turbo-155-7_hazzys"
+            }
+        }
+    ]
+}

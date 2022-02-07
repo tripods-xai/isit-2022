@@ -1,0 +1,117 @@
+[
+  {
+    "test_number": 0,
+    "model_id": "turbo-155-7_hazzys.2021-12-18.17-34-15",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "systematic_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ],
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "name": "TrellisEncoder"
+        },
+        "channel": { "sigma": 1.4125375446227544, "snr": -3.0, "name": "AWGN" },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboSystematicEncoderDecoder"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 100000
+    },
+    "stats": {
+      "ber": 0.18146443,
+      "bler": 0.97682,
+      "total_bit_errors": 18146443.0,
+      "total_block_errors": 976820,
+      "num_blocks": 1000000,
+      "runtime": 563.9229516983032
+    }
+  }
+]

@@ -1,0 +1,164 @@
+[
+    {
+        "sigma": 1.4125375446227544,
+        "snr": -3.0,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 9711,
+        "number_errors": 178895,
+        "bit_error_rate": 0.178895,
+        "block_error_rate": 0.9711,
+        "runtime": 1816.4856972694397
+    },
+    {
+        "sigma": 1.333521432163324,
+        "snr": -2.4999999999999996,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 8948,
+        "number_errors": 143027,
+        "bit_error_rate": 0.143027,
+        "block_error_rate": 0.8948,
+        "runtime": 2234.658018350601
+    },
+    {
+        "sigma": 1.2589254117941673,
+        "snr": -2.0,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 7183,
+        "number_errors": 96338,
+        "bit_error_rate": 0.096338,
+        "block_error_rate": 0.7183,
+        "runtime": 2336.227590084076
+    },
+    {
+        "sigma": 1.1885022274370185,
+        "snr": -1.5000000000000002,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 4815,
+        "number_errors": 54353,
+        "bit_error_rate": 0.054353,
+        "block_error_rate": 0.4815,
+        "runtime": 2130.9242403507233
+    },
+    {
+        "sigma": 1.1220184543019636,
+        "snr": -1.0000000000000009,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 2560,
+        "number_errors": 24100,
+        "bit_error_rate": 0.0241,
+        "block_error_rate": 0.256,
+        "runtime": 1719.9666125774384
+    },
+    {
+        "sigma": 1.0592537251772889,
+        "snr": -0.49999999999999956,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 1070,
+        "number_errors": 7779,
+        "bit_error_rate": 0.007779,
+        "block_error_rate": 0.107,
+        "runtime": 1356.948921918869
+    },
+    {
+        "sigma": 1.0,
+        "snr": -0.0,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 398,
+        "number_errors": 1910,
+        "bit_error_rate": 0.00191,
+        "block_error_rate": 0.0398,
+        "runtime": 1097.0101583003998
+    },
+    {
+        "sigma": 0.9440608762859234,
+        "snr": 0.49999999999999983,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 141,
+        "number_errors": 460,
+        "bit_error_rate": 0.00046,
+        "block_error_rate": 0.0141,
+        "runtime": 931.6111922264099
+    },
+    {
+        "sigma": 0.8912509381337456,
+        "snr": 0.9999999999999993,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_hazzys",
+            "num_block": 10000,
+            "block_len": 100,
+            "num_decoder_iterations": 20,
+            "num_cpu": 12,
+            "systematic": true
+        },
+        "number_block_errors": 55,
+        "number_errors": 104,
+        "bit_error_rate": 0.000104,
+        "block_error_rate": 0.0055,
+        "runtime": 841.7575116157532
+    }
+]

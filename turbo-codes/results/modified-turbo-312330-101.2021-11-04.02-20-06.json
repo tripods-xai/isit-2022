@@ -1,0 +1,138 @@
+[
+    {
+        "sigma": 1.1885022274370185,
+        "snr": -1.5000000000000002,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 19,
+        "bit_error_rate": 0.19,
+        "block_error_rate": 1.0,
+        "runtime": 0.5809273719787598
+    },
+    {
+        "sigma": 1.1220184543019636,
+        "snr": -1.0000000000000009,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 39,
+        "bit_error_rate": 0.39,
+        "block_error_rate": 1.0,
+        "runtime": 0.5886132717132568
+    },
+    {
+        "sigma": 1.0592537251772889,
+        "snr": -0.49999999999999956,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 36,
+        "bit_error_rate": 0.36,
+        "block_error_rate": 1.0,
+        "runtime": 0.5885074138641357
+    },
+    {
+        "sigma": 1.0,
+        "snr": -0.0,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 12,
+        "bit_error_rate": 0.12,
+        "block_error_rate": 1.0,
+        "runtime": 0.578963041305542
+    },
+    {
+        "sigma": 0.9440608762859234,
+        "snr": 0.49999999999999983,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 1,
+        "bit_error_rate": 0.01,
+        "block_error_rate": 1.0,
+        "runtime": 0.579719066619873
+    },
+    {
+        "sigma": 0.8912509381337456,
+        "snr": 0.9999999999999993,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 0,
+        "number_errors": 0,
+        "bit_error_rate": 0.0,
+        "block_error_rate": 0.0,
+        "runtime": 0.5883829593658447
+    },
+    {
+        "sigma": 0.8413951416451951,
+        "snr": 1.4999999999999991,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 0,
+        "number_errors": 0,
+        "bit_error_rate": 0.0,
+        "block_error_rate": 0.0,
+        "runtime": 0.5826137065887451
+    },
+    {
+        "sigma": 0.7943282347242815,
+        "snr": 1.9999999999999998,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 1,
+            "block_len": 100,
+            "num_decoder_iterations": 6,
+            "num_cpu": 1
+        },
+        "number_block_errors": 1,
+        "number_errors": 9,
+        "bit_error_rate": 0.09,
+        "block_error_rate": 1.0,
+        "runtime": 0.5784046649932861
+    }
+]

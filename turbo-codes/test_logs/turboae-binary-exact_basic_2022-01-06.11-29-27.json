@@ -1,0 +1,4344 @@
+[
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.4125375446227544,
+        "snr": -3,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.4125375446227544,
+            "snr": -3,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.4125375446227544,
+            "snr": -3,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.07528549432754517,
+      "ber_var": 0.008712315000593662,
+      "bler_mean": 0.7524499893188477,
+      "bler_var": 0.1862783133983612,
+      "cross_entropy_mean": 0.18811823427677155,
+      "cross_entropy_var": 0.1847674399614334,
+      "encoded_mean": 0.49043065309524536,
+      "encoded_var": 0.2499084621667862
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.333521432163324,
+        "snr": -2.4999999999999996,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.333521432163324,
+            "snr": -2.4999999999999996,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.333521432163324,
+            "snr": -2.4999999999999996,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.043296001851558685,
+      "ber_var": 0.004921631887555122,
+      "bler_mean": 0.621749997138977,
+      "bler_var": 0.23518869280815125,
+      "cross_entropy_mean": 0.11391900479793549,
+      "cross_entropy_var": 0.19925697147846222,
+      "encoded_mean": 0.4899519979953766,
+      "encoded_var": 0.24989904463291168
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.2589254117941673,
+        "snr": -2,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.2589254117941673,
+            "snr": -2,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.2589254117941673,
+            "snr": -2,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.025008000433444977,
+      "ber_var": 0.0024564228951931,
+      "bler_mean": 0.4980999827384949,
+      "bler_var": 0.25000888109207153,
+      "cross_entropy_mean": 0.0697210505604744,
+      "cross_entropy_var": 0.16889487206935883,
+      "encoded_mean": 0.49015599489212036,
+      "encoded_var": 0.2499030977487564
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.1885022274370185,
+        "snr": -1.5000000000000002,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1885022274370185,
+            "snr": -1.5000000000000002,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1885022274370185,
+            "snr": -1.5000000000000002,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.015489999204874039,
+      "ber_var": 0.0012867841869592667,
+      "bler_mean": 0.39184999465942383,
+      "bler_var": 0.23831547796726227,
+      "cross_entropy_mean": 0.04737091809511185,
+      "cross_entropy_var": 0.16626305878162384,
+      "encoded_mean": 0.4903988242149353,
+      "encoded_var": 0.24990788102149963
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.1220184543019636,
+        "snr": -1.0000000000000009,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1220184543019636,
+            "snr": -1.0000000000000009,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.1220184543019636,
+            "snr": -1.0000000000000009,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.010141500271856785,
+      "ber_var": 0.0006935996352694929,
+      "bler_mean": 0.3137499988079071,
+      "bler_var": 0.21532167494297028,
+      "cross_entropy_mean": 0.032598309218883514,
+      "cross_entropy_var": 0.13075126707553864,
+      "encoded_mean": 0.4899330139160156,
+      "encoded_var": 0.24989867210388184
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1.0592537251772889,
+        "snr": -0.49999999999999956,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.0592537251772889,
+            "snr": -0.49999999999999956,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1.0592537251772889,
+            "snr": -0.49999999999999956,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.006463499274104834,
+      "ber_var": 0.00036777654895558953,
+      "bler_mean": 0.2409999966621399,
+      "bler_var": 0.1829281598329544,
+      "cross_entropy_mean": 0.02313491702079773,
+      "cross_entropy_var": 0.11736609041690826,
+      "encoded_mean": 0.4901660084724426,
+      "encoded_var": 0.24990330636501312
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 1,
+        "snr": 0,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1,
+            "snr": 0,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 1,
+            "snr": 0,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.004386499989777803,
+      "ber_var": 0.0002078240067930892,
+      "bler_mean": 0.1834000051021576,
+      "bler_var": 0.14977194368839264,
+      "cross_entropy_mean": 0.017146188765764236,
+      "cross_entropy_var": 0.10392534732818604,
+      "encoded_mean": 0.49001365900039673,
+      "encoded_var": 0.24990025162696838
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.9440608762859234,
+        "snr": 0.49999999999999983,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.9440608762859234,
+            "snr": 0.49999999999999983,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.9440608762859234,
+            "snr": 0.49999999999999983,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.003102999646216631,
+      "ber_var": 0.00011362707300577313,
+      "bler_mean": 0.14429999887943268,
+      "bler_var": 0.12348368763923645,
+      "cross_entropy_mean": 0.013177350163459778,
+      "cross_entropy_var": 0.09663218259811401,
+      "encoded_mean": 0.490023672580719,
+      "encoded_var": 0.24990051984786987
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.8912509381337456,
+        "snr": 0.9999999999999993,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8912509381337456,
+            "snr": 0.9999999999999993,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8912509381337456,
+            "snr": 0.9999999999999993,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.002193999942392111,
+      "ber_var": 0.00008489061292493716,
+      "bler_mean": 0.10939999669790268,
+      "bler_var": 0.09743651747703552,
+      "cross_entropy_mean": 0.010035993531346321,
+      "cross_entropy_var": 0.08514173328876495,
+      "encoded_mean": 0.48994800448417664,
+      "encoded_var": 0.2498989850282669
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.8413951416451951,
+        "snr": 1.4999999999999991,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8413951416451951,
+            "snr": 1.4999999999999991,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.8413951416451951,
+            "snr": 1.4999999999999991,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.0016629998572170734,
+      "ber_var": 0.00005221704122959636,
+      "bler_mean": 0.08615000545978546,
+      "bler_var": 0.07873211801052094,
+      "cross_entropy_mean": 0.008445950224995613,
+      "cross_entropy_var": 0.07579702883958817,
+      "encoded_mean": 0.4899498224258423,
+      "encoded_var": 0.24989905953407288
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7943282347242815,
+        "snr": 1.9999999999999998,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7943282347242815,
+            "snr": 1.9999999999999998,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7943282347242815,
+            "snr": 1.9999999999999998,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.001183499931357801,
+      "ber_var": 0.00003070586171816103,
+      "bler_mean": 0.06610000133514404,
+      "bler_var": 0.061733879148960114,
+      "cross_entropy_mean": 0.006695638410747051,
+      "cross_entropy_var": 0.07278315722942352,
+      "encoded_mean": 0.4902303218841553,
+      "encoded_var": 0.2499045580625534
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7498942093324559,
+        "snr": 2.499999999999999,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7498942093324559,
+            "snr": 2.499999999999999,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7498942093324559,
+            "snr": 2.499999999999999,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.0008514999644830823,
+      "ber_var": 0.00001903089832921978,
+      "bler_mean": 0.05210000276565552,
+      "bler_var": 0.049388058483600616,
+      "cross_entropy_mean": 0.005099247209727764,
+      "cross_entropy_var": 0.05826792120933533,
+      "encoded_mean": 0.48996350169181824,
+      "encoded_var": 0.24989932775497437
+    }
+  },
+  {
+    "settings": {
+      "model_id": "turboae-binary-exact_basic_2022-01-06.11-29-27",
+      "block_len": 100,
+      "batch_size": 10000,
+      "write_results_to_log": true,
+      "logdir": "./test_logs/",
+      "tzname": "America/Chicago",
+      "write_to_tensorboard": true,
+      "tensorboard_dir": "./tensorboard/testing/",
+      "verbose": 1
+    },
+    "encoder_decoder": {
+      "noninterleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 1], [0, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]],
+            [[0, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[1, 0], [0, 1]],
+            [[0, 0], [1, 1]],
+            [[0, 1], [1, 0]],
+            [[1, 1], [0, 0]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 2,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaved_code": {
+        "trellis": {
+          "state_transitions": {
+            "next_states": [
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15],
+              [0, 1],
+              [2, 3],
+              [4, 5],
+              [6, 7],
+              [8, 9],
+              [10, 11],
+              [12, 13],
+              [14, 15]
+            ],
+            "previous_states": [
+              [[0, 0], [8, 0]],
+              [[0, 1], [8, 1]],
+              [[1, 0], [9, 0]],
+              [[1, 1], [9, 1]],
+              [[2, 0], [10, 0]],
+              [[2, 1], [10, 1]],
+              [[3, 0], [11, 0]],
+              [[3, 1], [11, 1]],
+              [[4, 0], [12, 0]],
+              [[4, 1], [12, 1]],
+              [[5, 0], [13, 0]],
+              [[5, 1], [13, 1]],
+              [[6, 0], [14, 0]],
+              [[6, 1], [14, 1]],
+              [[7, 0], [15, 0]],
+              [[7, 1], [15, 1]]
+            ]
+          },
+          "output_table": [
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[1], [0]],
+            [[0], [1]],
+            [[1], [0]],
+            [[0], [1]]
+          ]
+        },
+        "num_states": 16,
+        "num_inputs": 2,
+        "num_input_channels": 1,
+        "num_output_channels": 1,
+        "normalize_output_table": false,
+        "name": "GeneralizedConvolutionalCode"
+      },
+      "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+      "channel": {
+        "sigma": 0.7079457843841379,
+        "snr": 3.0000000000000004,
+        "v": "posix",
+        "name": "AdditiveTonAWGN"
+      },
+      "decoder": {
+        "decoder1": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 1], [0, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]],
+                [[0, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[1, 0], [0, 1]],
+                [[0, 0], [1, 1]],
+                [[0, 1], [1, 0]],
+                [[1, 1], [0, 0]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 2,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7079457843841379,
+            "snr": 3.0000000000000004,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 2,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "decoder2": {
+          "trellis_code": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15],
+                  [0, 1],
+                  [2, 3],
+                  [4, 5],
+                  [6, 7],
+                  [8, 9],
+                  [10, 11],
+                  [12, 13],
+                  [14, 15]
+                ],
+                "previous_states": [
+                  [[0, 0], [8, 0]],
+                  [[0, 1], [8, 1]],
+                  [[1, 0], [9, 0]],
+                  [[1, 1], [9, 1]],
+                  [[2, 0], [10, 0]],
+                  [[2, 1], [10, 1]],
+                  [[3, 0], [11, 0]],
+                  [[3, 1], [11, 1]],
+                  [[4, 0], [12, 0]],
+                  [[4, 1], [12, 1]],
+                  [[5, 0], [13, 0]],
+                  [[5, 1], [13, 1]],
+                  [[6, 0], [14, 0]],
+                  [[6, 1], [14, 1]],
+                  [[7, 0], [15, 0]],
+                  [[7, 1], [15, 1]]
+                ]
+              },
+              "output_table": [
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[1], [0]],
+                [[0], [1]],
+                [[1], [0]],
+                [[0], [1]]
+              ]
+            },
+            "num_states": 16,
+            "num_inputs": 2,
+            "num_input_channels": 1,
+            "num_output_channels": 1,
+            "normalize_output_table": false,
+            "name": "GeneralizedConvolutionalCode"
+          },
+          "channel": {
+            "sigma": 0.7079457843841379,
+            "snr": 3.0000000000000004,
+            "v": "posix",
+            "name": "AdditiveTonAWGN"
+          },
+          "use_max": false,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "BCJRDecoder"
+        },
+        "interleaver": {"block_len": 100, "name": "RandomPermuteInterleaver"},
+        "num_iter": 6,
+        "num_noninterleaved_streams": 2,
+        "num_input_channels": 3,
+        "num_output_channels": 1,
+        "name": "TurboDecoder"
+      },
+      "rate": [1, 3],
+      "block_len": 100,
+      "use_max": false,
+      "num_iter": 6,
+      "name": "turboae-binary-exact_basic"
+    },
+    "steps": 2,
+    "scores": {
+      "ber_mean": 0.0007314999820664525,
+      "ber_var": 0.000019460880139376968,
+      "bler_mean": 0.041850000619888306,
+      "bler_var": 0.0401005819439888,
+      "cross_entropy_mean": 0.004443845711648464,
+      "cross_entropy_var": 0.05256465822458267,
+      "encoded_mean": 0.4900915026664734,
+      "encoded_var": 0.2499018758535385
+    }
+  }
+]

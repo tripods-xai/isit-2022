@@ -1,0 +1,806 @@
+[
+  {
+    "test_number": 0,
+    "model_id": "turbo-155-7_basic.2021-12-19.00-47-21",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "systematic_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ],
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "TrellisEncoder"
+        },
+        "interleaver": {
+          "permutation": [
+            26, 20, 27, 57, 19, 76, 61, 0, 94, 59, 40, 11, 70, 18, 22, 88, 46,
+            33, 35, 30, 97, 66, 96, 79, 42, 84, 52, 2, 6, 1, 23, 47, 65, 12, 91,
+            87, 67, 39, 69, 29, 43, 73, 55, 50, 4, 45, 49, 77, 21, 64, 85, 63,
+            53, 74, 28, 44, 72, 32, 58, 17, 98, 95, 13, 16, 48, 36, 41, 54, 78,
+            71, 86, 81, 51, 89, 24, 62, 34, 9, 80, 83, 37, 93, 7, 25, 92, 60,
+            38, 5, 14, 82, 8, 15, 75, 90, 56, 99, 31, 68, 10, 3
+          ],
+          "block_len": 100,
+          "name": "PermuteInterleaver"
+        },
+        "channel": {
+          "sigma": 0.7943282347242815,
+          "snr": 1.9999999999999998,
+          "name": "AWGN"
+        },
+        "decoder": {
+          "decoder1": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7943282347242815,
+              "snr": 1.9999999999999998,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "decoder2": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7943282347242815,
+              "snr": 1.9999999999999998,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "interleaver": {
+            "permutation": [
+              26, 20, 27, 57, 19, 76, 61, 0, 94, 59, 40, 11, 70, 18, 22, 88, 46,
+              33, 35, 30, 97, 66, 96, 79, 42, 84, 52, 2, 6, 1, 23, 47, 65, 12,
+              91, 87, 67, 39, 69, 29, 43, 73, 55, 50, 4, 45, 49, 77, 21, 64, 85,
+              63, 53, 74, 28, 44, 72, 32, 58, 17, 98, 95, 13, 16, 48, 36, 41,
+              54, 78, 71, 86, 81, 51, 89, 24, 62, 34, 9, 80, 83, 37, 93, 7, 25,
+              92, 60, 38, 5, 14, 82, 8, 15, 75, 90, 56, 99, 31, 68, 10, 3
+            ],
+            "block_len": 100,
+            "name": "PermuteInterleaver"
+          },
+          "num_iter": 6,
+          "num_noninterleaved_streams": 2,
+          "num_input_channels": 4,
+          "num_output_channels": 1,
+          "name": "TurboDecoder"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboSystematicEncoderDecoder"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 4.958e-5,
+      "bler": 0.002717,
+      "total_bit_errors": 4958.0,
+      "total_block_errors": 2717,
+      "num_blocks": 1000000,
+      "runtime": 462.1840753555298
+    }
+  },
+  {
+    "test_number": 1,
+    "model_id": "turbo-155-7_basic.2021-12-19.00-47-21",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "systematic_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ],
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "TrellisEncoder"
+        },
+        "interleaver": {
+          "permutation": [
+            30, 28, 75, 95, 73, 1, 7, 80, 87, 40, 74, 17, 57, 89, 23, 58, 52,
+            47, 63, 16, 86, 49, 67, 4, 71, 96, 98, 38, 27, 50, 31, 9, 33, 3, 88,
+            10, 44, 24, 68, 26, 64, 77, 36, 66, 45, 20, 12, 78, 56, 59, 11, 43,
+            90, 14, 54, 84, 83, 41, 53, 6, 81, 97, 62, 70, 42, 94, 32, 29, 48,
+            60, 51, 8, 82, 99, 34, 25, 93, 13, 35, 37, 79, 2, 55, 5, 92, 76, 85,
+            21, 22, 69, 91, 39, 19, 72, 0, 65, 61, 18, 15, 46
+          ],
+          "block_len": 100,
+          "name": "PermuteInterleaver"
+        },
+        "channel": {
+          "sigma": 0.7498942093324559,
+          "snr": 2.499999999999999,
+          "name": "AWGN"
+        },
+        "decoder": {
+          "decoder1": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7498942093324559,
+              "snr": 2.499999999999999,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "decoder2": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7498942093324559,
+              "snr": 2.499999999999999,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "interleaver": {
+            "permutation": [
+              30, 28, 75, 95, 73, 1, 7, 80, 87, 40, 74, 17, 57, 89, 23, 58, 52,
+              47, 63, 16, 86, 49, 67, 4, 71, 96, 98, 38, 27, 50, 31, 9, 33, 3,
+              88, 10, 44, 24, 68, 26, 64, 77, 36, 66, 45, 20, 12, 78, 56, 59,
+              11, 43, 90, 14, 54, 84, 83, 41, 53, 6, 81, 97, 62, 70, 42, 94, 32,
+              29, 48, 60, 51, 8, 82, 99, 34, 25, 93, 13, 35, 37, 79, 2, 55, 5,
+              92, 76, 85, 21, 22, 69, 91, 39, 19, 72, 0, 65, 61, 18, 15, 46
+            ],
+            "block_len": 100,
+            "name": "PermuteInterleaver"
+          },
+          "num_iter": 6,
+          "num_noninterleaved_streams": 2,
+          "num_input_channels": 4,
+          "num_output_channels": 1,
+          "name": "TurboDecoder"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboSystematicEncoderDecoder"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 1.364e-5,
+      "bler": 0.000608,
+      "total_bit_errors": 1364.0,
+      "total_block_errors": 608,
+      "num_blocks": 1000000,
+      "runtime": 469.8031921386719
+    }
+  },
+  {
+    "test_number": 2,
+    "model_id": "turbo-155-7_basic.2021-12-19.00-47-21",
+    "test_run_settings": {
+      "encoder_decoder_settings": {
+        "systematic_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ],
+              [
+                [0.0, 0.0],
+                [1.0, 1.0]
+              ],
+              [
+                [0.0, 1.0],
+                [1.0, 0.0]
+              ]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 2,
+          "name": "TrellisEncoder"
+        },
+        "interleaved_code": {
+          "trellis": {
+            "state_transitions": {
+              "next_states": [
+                [0, 1],
+                [3, 2],
+                [1, 0],
+                [2, 3]
+              ],
+              "previous_states": [
+                [
+                  [0, 0],
+                  [2, 1]
+                ],
+                [
+                  [0, 1],
+                  [2, 0]
+                ],
+                [
+                  [1, 1],
+                  [3, 0]
+                ],
+                [
+                  [1, 0],
+                  [3, 1]
+                ]
+              ]
+            },
+            "output_table": [
+              [[0.0], [1.0]],
+              [[1.0], [0.0]],
+              [[0.0], [1.0]],
+              [[1.0], [0.0]]
+            ]
+          },
+          "num_states": 4,
+          "num_inputs": 2,
+          "num_input_channels": 1,
+          "num_output_channels": 1,
+          "name": "TrellisEncoder"
+        },
+        "interleaver": {
+          "permutation": [
+            11, 41, 22, 88, 9, 81, 48, 83, 86, 85, 69, 57, 67, 33, 20, 78, 5,
+            49, 3, 37, 38, 29, 7, 55, 90, 6, 1, 42, 91, 32, 66, 97, 46, 36, 68,
+            80, 74, 64, 28, 87, 0, 14, 76, 4, 62, 71, 39, 24, 75, 45, 61, 53,
+            77, 93, 40, 70, 99, 51, 8, 60, 89, 31, 10, 23, 2, 25, 26, 12, 63,
+            82, 96, 92, 18, 50, 79, 84, 52, 16, 13, 95, 58, 35, 98, 15, 47, 72,
+            27, 30, 54, 73, 21, 94, 17, 56, 34, 59, 65, 19, 44, 43
+          ],
+          "block_len": 100,
+          "name": "PermuteInterleaver"
+        },
+        "channel": {
+          "sigma": 0.7079457843841379,
+          "snr": 3.0000000000000004,
+          "name": "AWGN"
+        },
+        "decoder": {
+          "decoder1": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7079457843841379,
+              "snr": 3.0000000000000004,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "decoder2": {
+            "trellis": {
+              "state_transitions": {
+                "next_states": [
+                  [0, 1],
+                  [3, 2],
+                  [1, 0],
+                  [2, 3]
+                ],
+                "previous_states": [
+                  [
+                    [0, 0],
+                    [2, 1]
+                  ],
+                  [
+                    [0, 1],
+                    [2, 0]
+                  ],
+                  [
+                    [1, 1],
+                    [3, 0]
+                  ],
+                  [
+                    [1, 0],
+                    [3, 1]
+                  ]
+                ]
+              },
+              "output_table": [
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ],
+                [
+                  [0.0, 0.0],
+                  [1.0, 1.0]
+                ],
+                [
+                  [0.0, 1.0],
+                  [1.0, 0.0]
+                ]
+              ]
+            },
+            "channel": {
+              "sigma": 0.7079457843841379,
+              "snr": 3.0000000000000004,
+              "name": "AWGN"
+            },
+            "use_max": false,
+            "num_input_channels": 2,
+            "num_output_channels": 1,
+            "name": "BCJRDecoder"
+          },
+          "interleaver": {
+            "permutation": [
+              11, 41, 22, 88, 9, 81, 48, 83, 86, 85, 69, 57, 67, 33, 20, 78, 5,
+              49, 3, 37, 38, 29, 7, 55, 90, 6, 1, 42, 91, 32, 66, 97, 46, 36,
+              68, 80, 74, 64, 28, 87, 0, 14, 76, 4, 62, 71, 39, 24, 75, 45, 61,
+              53, 77, 93, 40, 70, 99, 51, 8, 60, 89, 31, 10, 23, 2, 25, 26, 12,
+              63, 82, 96, 92, 18, 50, 79, 84, 52, 16, 13, 95, 58, 35, 98, 15,
+              47, 72, 27, 30, 54, 73, 21, 94, 17, 56, 34, 59, 65, 19, 44, 43
+            ],
+            "block_len": 100,
+            "name": "PermuteInterleaver"
+          },
+          "num_iter": 6,
+          "num_noninterleaved_streams": 2,
+          "num_input_channels": 4,
+          "num_output_channels": 1,
+          "name": "TurboDecoder"
+        },
+        "rate": [1, 3],
+        "block_len": 100,
+        "use_max": false,
+        "num_iter": 6,
+        "name": "TurboSystematicEncoderDecoder"
+      },
+      "block_len": 100,
+      "num_blocks": 1000000,
+      "batch_size": 10000
+    },
+    "stats": {
+      "ber": 2.45e-6,
+      "bler": 9.4e-5,
+      "total_bit_errors": 245.0,
+      "total_block_errors": 94,
+      "num_blocks": 1000000,
+      "runtime": 480.2304382324219
+    }
+  }
+]

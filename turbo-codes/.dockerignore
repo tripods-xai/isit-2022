@@ -1,0 +1,8 @@
+.git
+images/*
+logs/*
+models/*
+results/*
+.vscode
+.mypy_cache
+tmp/*

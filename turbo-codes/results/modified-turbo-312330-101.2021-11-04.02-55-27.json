@@ -1,0 +1,138 @@
+[
+    {
+        "sigma": 1.1885022274370185,
+        "snr": -1.5000000000000002,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 99,
+        "number_errors": 3059,
+        "bit_error_rate": 0.3059,
+        "block_error_rate": 0.99,
+        "runtime": 20.942623138427734
+    },
+    {
+        "sigma": 1.1220184543019636,
+        "snr": -1.0000000000000009,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 99,
+        "number_errors": 3132,
+        "bit_error_rate": 0.3132,
+        "block_error_rate": 0.99,
+        "runtime": 20.84631085395813
+    },
+    {
+        "sigma": 1.0592537251772889,
+        "snr": -0.49999999999999956,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 93,
+        "number_errors": 2629,
+        "bit_error_rate": 0.2629,
+        "block_error_rate": 0.93,
+        "runtime": 20.991788387298584
+    },
+    {
+        "sigma": 1.0,
+        "snr": -0.0,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 87,
+        "number_errors": 2302,
+        "bit_error_rate": 0.2302,
+        "block_error_rate": 0.87,
+        "runtime": 20.92175555229187
+    },
+    {
+        "sigma": 0.9440608762859234,
+        "snr": 0.49999999999999983,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 80,
+        "number_errors": 1321,
+        "bit_error_rate": 0.1321,
+        "block_error_rate": 0.8,
+        "runtime": 21.013034105300903
+    },
+    {
+        "sigma": 0.8912509381337456,
+        "snr": 0.9999999999999993,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 67,
+        "number_errors": 890,
+        "bit_error_rate": 0.089,
+        "block_error_rate": 0.67,
+        "runtime": 21.00199866294861
+    },
+    {
+        "sigma": 0.8413951416451951,
+        "snr": 1.4999999999999991,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 61,
+        "number_errors": 561,
+        "bit_error_rate": 0.0561,
+        "block_error_rate": 0.61,
+        "runtime": 20.929734706878662
+    },
+    {
+        "sigma": 0.7943282347242815,
+        "snr": 1.9999999999999998,
+        "settings": {
+            "encoder_name": "modified_basic",
+            "decoder_name": "modified_basic",
+            "num_block": 100,
+            "block_len": 100,
+            "num_decoder_iterations": 15,
+            "num_cpu": 12
+        },
+        "number_block_errors": 43,
+        "number_errors": 332,
+        "bit_error_rate": 0.0332,
+        "block_error_rate": 0.43,
+        "runtime": 20.95904302597046
+    }
+]
