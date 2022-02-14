@@ -1,2 +1,2 @@
 # turbo-codes
-Commpy based encoder and decoder for turbo codes.
+Tensorflow based encoder and decoder for turbo codes.
