@@ -16,6 +16,6 @@ Example:
 We want to generate one optimal result of generator 2 (for the encoding block 2), for given 10 data samples. We consider the shift to be 4 and the memory length to be 10. 
 
 
-`python optHD_final.py -num_smpl 10 -shift_length 4 -block_idx 2 -memory_length 10 -multi_solution 0`
+`python main.py -num_smpl 10 -shift_length 4 -block_idx 2 -memory_length 10 -multi_solution 0`
 
 The returnning result should be g = 00101110000 with cost 0.018 (1.8%). 
