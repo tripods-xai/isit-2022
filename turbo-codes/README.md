@@ -122,7 +122,7 @@ python ./turbo_nonsystematic_benchmark.py turbo-755-0 basic --block_len 100 --nu
 
 ### Reading the Benchmarking Output
 
-As mentioned in the help menus, you can find the output in a JSON file in the `test_logs` folder. To plot it you can use python's `json` library to extract the data and `matplotlib` to plot it. See [this example](test_logs/example.json). In the JSON file you will find exhaustive details about all the settings used during the benchmarking experiment, along with scores. 
+As mentioned in the help menus, you can find the output in a JSON file in the `test_logs` folder. Upon running, the JSON file will be one ugly line, so you should run it through your favorite formatter to make it look nice. To plot it you can use python's `json` library to extract the data and `matplotlib` to plot it. See [this example](test_logs/example.json) JSON file. In the JSON file you will find exhaustive details about all the settings used during the benchmarking experiment, along with scores. 
 
 Scores can be found under the `scores` key in the JSON file. There will be one set of `scores` for each SNR you are running, and look at the `channel` key for the SNR. In [example.json](test_logs/example.json):
 ```json
