@@ -1,18 +1,16 @@
 import abc
 
 import tensorflow as tf
-from tensor_annotations import tensorflow as ttf
-from tensor_annotations import axes
 
 from src.channelcoding.dataclasses import FixedPermuteInterleaverSettings, RandomPermuteInterleaverSettings
 
 from .codes import Code
-from .types import Batch, Time, Channels
+
 
 
 class Interleaver(Code):
     @abc.abstractmethod
-    def deinterleave(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def deinterleave(self, msg):
         pass
     
     def reset(self):
@@ -43,10 +41,10 @@ class FixedPermuteInterleaver(Interleaver):
     def __len__(self):
         return self.block_len
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         return tf.gather(msg, self.permutation, axis=1)
     
-    def deinterleave(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def deinterleave(self, msg):
         return tf.gather(msg, self.depermutation, axis=1)
     
     def settings(self) -> FixedPermuteInterleaverSettings:
@@ -80,12 +78,12 @@ class RandomPermuteInterleaver(Interleaver):
             ta_deperm = ta_deperm.write(i, tf.math.invert_permutation(permutation))
         return ta_perm.stack(), ta_deperm.stack()
     
-    def set(self, msg: ttf.Tensor3[Batch, Time, Channels]):
+    def set(self, msg):
         if self._permutation is None:
             batch_size = tf.shape(msg)[0]
             self._permutation, self._depermutation = self.generate_permutations(batch_size)
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         self.set(msg)
         return tf.gather(msg, self._permutation, axis=1, batch_dims=1)
     
@@ -93,7 +91,7 @@ class RandomPermuteInterleaver(Interleaver):
         self._permutation = None
         self._depermutation = None
     
-    def deinterleave(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def deinterleave(self, msg):
         return tf.gather(msg, self._depermutation, axis=1, batch_dims=1)
     
     def settings(self) -> RandomPermuteInterleaverSettings:

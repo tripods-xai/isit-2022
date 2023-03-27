@@ -18,7 +18,6 @@ from src.dataclasses import TrainerSettings, ValidatorSettings
 from .utils import TurboCodesJSONEncoder, safe_open_dir
 
 from .channelcoding.encoder_decoders import EncoderDecoder
-from .channelcoding.types import Loss
 
 # ~~TODO: Write history to logfile as we train~~
 # ~~TODO: Write to tensorboard~~

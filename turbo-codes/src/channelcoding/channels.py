@@ -1,19 +1,15 @@
 import abc
-import math
-from os import name, stat
+from os import name
 from typing import overload
 import tensorflow as tf
 from src.utils import sigma2snr, snr2sigma
 import tensorflow_probability as tfp
 tfd = tfp.distributions
-from tensor_annotations import tensorflow as ttf
-from tensor_annotations import axes
-import numpy as np
 
 from src.channelcoding.dataclasses import AWGNSettings, AdditiveTonAWGNSettings, ChannelSettings, NonIIDMarkovianGaussianAsAWGNSettings, UnknownChannelSettings
 
 from .codes import Code
-from .types import Time, Batch, Channels, A0, A1, A2, A3
+
 
 def scale_constraint(data):
     return data * 2. - 1.
@@ -24,22 +20,22 @@ def identity_constraint(data):
 class Channel(Code):
 
     @overload
-    def log_likelihood(self, msg: ttf.Tensor3[Batch, Time, Channels], outputs: ttf.Tensor1[Channels]) -> ttf.Tensor2[Batch, Time]: ...
+    def log_likelihood(self, msg, outputs): ...
     @overload
-    def log_likelihood(self, msg: ttf.Tensor3[Batch, Time, Channels], outputs: ttf.Tensor2[A0, Channels]) -> ttf.Tensor3[Batch, Time, A0]: ...
+    def log_likelihood(self, msg, outputs): ...
     @overload
-    def log_likelihood(self, msg: ttf.Tensor3[Batch, Time, Channels], outputs: ttf.Tensor3[A0, A1, Channels]) -> ttf.Tensor4[Batch, Time, A0, A1]: ...
+    def log_likelihood(self, msg, outputs): ...
     @overload
-    def log_likelihood(self, msg: ttf.Tensor3[Batch, Time, Channels], outputs: ttf.Tensor4[A0, A1, A2, Channels]) -> ttf.Tensor5[Batch, Time, A0, A1, A2]: ...
+    def log_likelihood(self, msg, outputs): ...
     @overload
-    def log_likelihood(self, msg: ttf.Tensor3[Batch, Time, Channels], outputs: ttf.Tensor5[A0, A1, A2, A3, Channels]) -> ttf.Tensor6[Batch, Time, A0, A1, A2, A3]: ...
+    def log_likelihood(self, msg, outputs): ...
 
     @abc.abstractmethod
     def log_likelihood(self, msg, outputs):
         pass
     
     @abc.abstractmethod
-    def logit_posterior(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def logit_posterior(self, msg):
         pass
 
     @property
@@ -70,7 +66,7 @@ class AWGN(NoisyChannel):
     def noise_func(self, shape):
         return tf.random.normal(shape, stddev=self.sigma)
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         # return (2. * msg - 1.) + self.noise_func(tf.shape(msg))
         return self.power_constraint(msg) + self.noise_func(tf.shape(msg))
 
@@ -91,7 +87,7 @@ class AWGN(NoisyChannel):
         return - 1. / (2 * self.variance) * square_noise_sum
     
     # @tf.function
-    def logit_posterior(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def logit_posterior(self, msg):
         return 2 * msg / self.variance
     
     def settings(self) -> ChannelSettings:

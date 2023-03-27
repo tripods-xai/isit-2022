@@ -5,6 +5,4 @@ pandas==1.1.5
 kaleido==0.2.1
 pytest==6.2.5
 git+https://www.github.com/keras-team/keras-contrib.git
-tensor_annotations
-tensor_annotations_tensorflow_stubs
 tensorflow-probability

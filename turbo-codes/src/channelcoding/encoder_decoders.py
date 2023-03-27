@@ -1,11 +1,9 @@
 import abc
-import typing
-from typing import Tuple, List, cast, Dict, Callable, Any
+from typing import Tuple, List, cast, Dict, Callable
 
 import tensorflow as tf
-from tensor_annotations import tensorflow as ttf
 
-from .types import Batch, Channels, Time
+
 from .dataclasses import (
     TurboNonsystematicEncoderDecoderSettings, TurboSystematicEncoderDecoderSettings)
 from .bcjr import (BCJRDecoder, SystematicTurboRepeater, TurboDecoder)
@@ -120,7 +118,7 @@ class TurboSystematicEncoderDecoder(EncoderDecoder):
         return self.decoder.num_output_channels
 
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         self.reset()
         # # encoded = self.encoder(msg)
         # systematic_encoded = self.systematic_code(msg)
@@ -251,7 +249,7 @@ class TurboNonsystematicEncoderDecoder(EncoderDecoder):
         return self.decoder.num_output_channels
 
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         self.reset()
 
         encoded = self.encoder(msg)

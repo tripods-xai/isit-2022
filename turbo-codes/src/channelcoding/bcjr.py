@@ -1,17 +1,13 @@
 import tensorflow as tf
-import math
 import numpy as np
-import typing
 
-import sys
 
-from tensor_annotations import tensorflow as ttf
 
 from src.channelcoding.encoders import TrellisCode
 
-from .types import Time, Batch, Channels, PrevStates, States, Input
+
 from .codes import Code
-from .dataclasses import BCJRDecoderSettings, HazzysTurboDecoderSettings, StateTransitionGraph, Trellis, TurboDecoderSettings
+from .dataclasses import BCJRDecoderSettings, HazzysTurboDecoderSettings, TurboDecoderSettings
 from .interleavers import Interleaver
 from .channels import Channel
 
@@ -33,7 +29,7 @@ def backward_recursion(gamma_values, next_states, batch_size, K, S, reducer):
     return tf.transpose(B.stack(), perm=[1, 0, 2])
 
 # @tf.function
-def forward_recursion(gamma_values: ttf.Tensor4[Batch, Time, States, Input], previous_states, batch_size, K, S, reducer):
+def forward_recursion(gamma_values, previous_states, batch_size, K, S, reducer):
     # previous_gamma_values = B x K x |S| x |Prev| : previous_gamma_values[:, k, i, t] is the gamma for received k from prev_states[i, t] to state i. |Prev| is ragged.
     # previous_states = |S| x |Prev| x 2 : previous_states[j] are the pairs of previous state that gets to j and the input to move to j. |Prev| is ragged.
     # A[k][j] = log p(Y[0:k-1], s[k] = j)
@@ -48,7 +44,7 @@ def forward_recursion(gamma_values: ttf.Tensor4[Batch, Time, States, Input], pre
     A = A.write(0, init_row)
     for k in tf.range(1, K):
         # B x |S| x 2 + B x |S| x 2 -> B x |S|
-        previous_alphas: ttf.Tensor2[Batch, States] = A.read(k-1)
+        previous_alphas = A.read(k-1)
         previous_gammas = previous_gamma_values[:, :, :, k-1]  # States x |Prev| x Batch
         # S x B
 
@@ -61,13 +57,13 @@ def forward_recursion(gamma_values: ttf.Tensor4[Batch, Time, States, Input], pre
 # Currently hardcoded for AWGN, but easy to change by passing in custom chi_values 
 # @tf.function
 def map_decode(
-    received_symbols: ttf.Tensor3[Batch, Time, Channels], 
-    next_states: ttf.Tensor2[States, Input], 
+    received_symbols, 
+    next_states, 
     previous_states: tf.RaggedTensor, # ttf.Tensor3[States, PrevStates, 2]
-    L_int: ttf.Tensor2[Batch, Time], 
-    chi_values: ttf.Tensor4[Batch, Time, States, Input], 
+    L_int, 
+    chi_values, 
     use_max: bool=False
-) -> ttf.Tensor2[Batch, Time]:
+):
     if use_max:
         reducer = tf.math.reduce_max
     else:
@@ -153,7 +149,7 @@ class BCJRDecoder(Code):
         return 1
     
     # @tf.function
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         # Channel 1 has priors, remaining channels are corrupted streams
         L_int = msg[:, :, 0]
         received_symbols = msg[:, :, 1:]
@@ -202,7 +198,7 @@ class BCJRDecoder(Code):
 
 class PriorInjector(Code):
 
-    def __init__(self, prior: ttf.Tensor2[Batch, Time]=None, name: str='PriorInjector'):
+    def __init__(self, prior=None, name: str='PriorInjector'):
         super().__init__(name)
         self.prior = prior
     
@@ -216,10 +212,10 @@ class PriorInjector(Code):
     
     # A simple method, but enforces our requirement that the prior is in the first channel
     @staticmethod
-    def inject_prior(prior: ttf.Tensor2[Batch, Time], msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def inject_prior(prior, msg):
         return tf.concat([prior[:, :, None], msg], axis=2)
 
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         prior = tf.zeros((msg.shape[0], msg.shape[1])) if self.prior is None else self.prior
         return self.inject_prior(prior, msg)
 
@@ -250,7 +246,7 @@ class TurboDecoder(Code):
             assert self.decoder1.num_output_channels == self.decoder2.num_output_channels
     
     # @tf.function
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         # Msg comes in with channels [Straight_1, ..., Straight_n, Interleaved_1,..., Interleaved_m]
         # n = number of inputs to straight decoder
         # m = number of inputs to interleaved decoder
@@ -264,7 +260,7 @@ class TurboDecoder(Code):
         return self.decode(msg_noninterleaved, msg_interleaved, L_int)
 
     # @tf.function
-    def decode(self, msg_noninterleaved, msg_interleaved, L_int) -> ttf.Tensor3[Batch, Time, Channels]:
+    def decode(self, msg_noninterleaved, msg_interleaved, L_int):
         L_int1 = L_int
         L_ext1 = tf.zeros_like(L_int1)
         for i in tf.range(self.num_iter):
@@ -315,7 +311,7 @@ class SystematicTurboRepeater(Code):
         return None
 
     # @tf.function
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         # Msg comes in with channels [Sys, Straight_2, ..., Straight_n, Interleaved_1,...]
         # n = number of inputs to straight decoder
         # Msg leaves [Sys, Straight_2, ..., Straight_n, Interleaved_sys, Interleaved_1,...]
@@ -336,7 +332,7 @@ class HazzysTurboDecoder(TurboDecoder):
         assert type(self.decoder1.channel) is type(self.decoder2.channel)
     
     # @tf.function
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         # Msg comes in with channels [Straight_1, ..., Straight_n, Interleaved_1,..., Interleaved_m]
         # n = number of inputs to straight decoder
         # m = number of inputs to interleaved decoder
@@ -350,7 +346,7 @@ class HazzysTurboDecoder(TurboDecoder):
         return self.decode(msg_noninterleaved, msg_interleaved, L_int)
 
     # @tf.function
-    def decode(self, msg_noninterleaved, msg_interleaved, L_int) -> ttf.Tensor3[Batch, Time, Channels]:
+    def decode(self, msg_noninterleaved, msg_interleaved, L_int):
         L_int1 = L_int
         L_ext1 = tf.zeros_like(L_int1)
         weighted_sys = self.decoder1.channel.logit_posterior(msg_noninterleaved[:, :, 0:1])

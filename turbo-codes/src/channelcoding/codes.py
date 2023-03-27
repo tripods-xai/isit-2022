@@ -1,12 +1,10 @@
 import abc
-from typing import Callable, Dict, List, Tuple, cast
-import uuid
+from typing import List, Tuple
 
 import tensorflow as tf
 from src.channelcoding.dataclasses import CodeSettings, ComposeCodeSettings, ConcatCodeSettings, IdentityCodeSettings, LambdaCodeSettings, ProjectionCodeSettings, UnknownCodeSettings
-from tensor_annotations import tensorflow as ttf
 
-from .types import Batch, Channels, Time
+
 
 
 class Code(abc.ABC):
@@ -14,11 +12,11 @@ class Code(abc.ABC):
         # self.name = '_'.join([name, str(uuid.uuid4())[:8]])
         self.name = name
     
-    def __call__(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def __call__(self, msg):
         return self.call(msg)
     
     @abc.abstractmethod
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         """
         For a rate n/k code, takes a batch of messages of length t with k channels
         and outputs a batch of messages of length t with n channels.
@@ -101,7 +99,7 @@ class Lambda(Code):
     def num_output_channels(self):
         return None
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         return self.func(msg) 
     
     def settings(self) -> LambdaCodeSettings:
@@ -135,8 +133,8 @@ class ConcatCode(Code):
         else:
             return sum(output_channels)
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
-        concat_msg: ttf.Tensor3[Batch, Time, Channels] = tf.concat([code(msg) for code in self.codes], axis=2)
+    def call(self, msg):
+        concat_msg = tf.concat([code(msg) for code in self.codes], axis=2)
         return concat_msg
     
     def reset(self):
@@ -183,7 +181,7 @@ class ComposeCode(Code):
     def num_output_channels(self):
         return self.codes[-1].num_output_channels
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         x = msg
         for code in self.codes:
             x = code(x)
@@ -223,7 +221,7 @@ class IdentityCode(Code):
     def num_output_channels(self):
         return None
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         return msg 
     
     def settings(self) -> IdentityCodeSettings:
@@ -243,7 +241,7 @@ class ProjectionCode(Code):
     def num_output_channels(self):
         return len(self.projection)
         
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         return tf.gather(msg, self.projection, axis=2)
     
     def settings(self) -> ProjectionCodeSettings:

@@ -3,16 +3,15 @@ from typing import List, Tuple
 
 import numpy as np
 import tensorflow as tf
-from tensor_annotations import tensorflow as ttf
 
 from src.utils import sigma2snr
 
-from .types import Channels, Input, States, Time
+
 
 
 @dataclass
 class StateTransitionGraph:
-    next_states: ttf.Tensor2[States, Input]
+    next_states: tf.Tensor
     # RaggedTensor of |States| x |PrevStates| x 2. Last dimension is pair previous state and transition input
     previous_states: tf.RaggedTensor
 
@@ -30,7 +29,7 @@ class StateTransitionGraph:
         return self.next_states.shape[1]
 
     @staticmethod
-    def from_next_states(next_states: ttf.Tensor2[States, Input]) -> 'StateTransitionGraph':
+    def from_next_states(next_states) -> 'StateTransitionGraph':
         num_states = next_states.shape[0]
         num_inputs = next_states.shape[1]
         previous_states_accum: List[List[List[int]]] = [[] for _ in range(num_states)]
@@ -52,7 +51,7 @@ class StateTransitionGraph:
 @dataclass
 class Trellis:
     state_transitions: StateTransitionGraph
-    output_table: ttf.Tensor3[States, Input, Channels]
+    output_table: tf.Tensor
 
     def __post_init__(self):
         tf.debugging.assert_type(self.output_table, tf_type=tf.float32)
@@ -204,7 +203,7 @@ class InterleaverSettings(CodeSettings):
     pass
 @dataclass
 class FixedPermuteInterleaverSettings(InterleaverSettings):
-    permutation: ttf.Tensor1[Time]
+    permutation: tf.Tensor
     block_len: int
     name: str = 'FixedPermuteInterleaver'
 

@@ -1,17 +1,13 @@
-import typing
 from typing import List
 import math
-from dataclasses import dataclass
 
-import numpy as np
 
 import tensorflow as tf
-from tensor_annotations import tensorflow as ttf
 
 from .codes import Code
 from .utils import bitarray2dec, safe_int, base_2_accumulator, dec2bitarray, enumerate_binary_inputs
 from .dataclasses import Trellis, StateTransitionGraph, TrellisEncoderSettings
-from .types import Time, Batch, Channels, CodeInputs, States, Input, InChannels, OutChannels, Width
+
 
 from ..utils import nullable, EPSILON
 
@@ -56,11 +52,11 @@ class TrellisCode(Code):
         else:
             return output_table
     
-    def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def call(self, msg):
         """
         Assumes message is set of binary streams. Each channel is an individual stream
         """
-        msg_reduced: ttf.Tensor2[Batch, Time] = bitarray2dec(tf.cast(msg, tf.int32), axis=2)
+        msg_reduced = bitarray2dec(tf.cast(msg, tf.int32), axis=2)
         msg_len = msg_reduced.shape[1]
         # Will be Time x Batch x Channels
         output: tf.TensorArray = tf.TensorArray(size=msg_len, dtype=tf.float32)
@@ -137,12 +133,12 @@ class GeneralizedConvolutionalCode(TrellisCode):
     Convolutional code represented by a table
     feedback table is required to be a binary table
     """
-    def __init__(self, table: ttf.Tensor2[CodeInputs,Channels], feedback: ttf.Tensor1[CodeInputs] = None, name: str = 'GeneralizedConvolutionalCode'):
+    def __init__(self, table, feedback = None, name: str = 'GeneralizedConvolutionalCode'):
         self.table = table
         self.feedback = feedback
 
         self.window = safe_int(math.log2(self.num_possible_windows))
-        self._base_2: ttf.Tensor1[Width] = base_2_accumulator(self.window)
+        self._base_2 = base_2_accumulator(self.window)
 
         trellis = self._construct_trellis()
 
@@ -174,12 +170,12 @@ class GeneralizedConvolutionalCode(TrellisCode):
         # Even indicies correspond to the last bit not included in state. 
         # Feedback will change this bit
         reordered_table = tf.gather(self.table, bitarray2dec(binary_states))
-        output_table: ttf.Tensor3[States, Input, Channels] = tf.stack(
+        output_table = tf.stack(
             [reordered_table[::2], reordered_table[1::2]], axis=1
         )
 
         next_states = bitarray2dec(binary_states[:, 1:], axis=-1)
-        next_states_table: ttf.Tensor2[States, Input] = tf.stack(
+        next_states_table = tf.stack(
             [next_states[::2], next_states[1::2]], axis=1
         )
         
@@ -188,7 +184,7 @@ class GeneralizedConvolutionalCode(TrellisCode):
             output_table=output_table
         )
 
-    # def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    # def call(self, msg):
     #     """
     #     Assumes message is a binary stream (1 channel).
     #     """
@@ -202,17 +198,17 @@ class GeneralizedConvolutionalCode(TrellisCode):
     #     #     return self.conv_encode(msg)
 
     # TODO: Optimization, not used
-    def _construct_state_sequence(self, msg: ttf.Tensor2[Batch, Time]) -> ttf.Tensor2[Batch, Time]:
+    def _construct_state_sequence(self, msg):
         steps = msg.shape[1]
-        msg_prepended: ttf.Tensor2[Batch, Time] = tf.pad(msg, paddings=tf.constant([[0, 0], [self.window-1, 0]]))
+        msg_prepended = tf.pad(msg, paddings=tf.constant([[0, 0], [self.window-1, 0]]))
         # Convolve base-2 transformer over to efficiently get states
-        conv_msg_input: ttf.Tensor3[Batch, Time, Channels] = tf.cast(msg_prepended[:,:,None], dtype=tf.float32)
-        base_2_filter: ttf.Tensor3[Width, InChannels, OutChannels] = tf.cast(self._base_2[:, None, None], dtype=tf.float32)
+        conv_msg_input = tf.cast(msg_prepended[:,:,None], dtype=tf.float32)
+        base_2_filter = tf.cast(self._base_2[:, None, None], dtype=tf.float32)
         return tf.cast(tf.nn.conv1d(conv_msg_input, base_2_filter, stride=1, padding='VALID'), dtype=tf.int32)[:,:,0]
 
     # TODO: Optimization, not used
-    def conv_encode(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
-        msg_channel_0: ttf.Tensor2[Batch, Time] = tf.ensure_shape(msg, (None, None, self.num_input_channels))[:, :, 0]
+    def conv_encode(self, msg):
+        msg_channel_0 = tf.ensure_shape(msg, (None, None, self.num_input_channels))[:, :, 0]
         
         input_sequence = self._construct_state_sequence(msg_channel_0)
         return tf.gather(self.table, input_sequence, axis=0)
@@ -234,7 +230,7 @@ class GeneralizedConvolutionalCode(TrellisCode):
     
     # TODO: Optimization, not used
     def concat_convcode(self, code2: 'GeneralizedConvolutionalCode') -> 'GeneralizedConvolutionalCode':
-        joined_table: ttf.Tensor2[CodeInputs, Channels] = tf.concat([self.table, code2.table], axis=1)
+        joined_table = tf.concat([self.table, code2.table], axis=1)
         return GeneralizedConvolutionalCode(joined_table, feedback=self.feedback)
     
     def _check_recursive_condition(self):
@@ -256,7 +252,7 @@ class GeneralizedConvolutionalCode(TrellisCode):
 
 class AffineConvolutionalCode(GeneralizedConvolutionalCode):
     """Convolutional code represented by a single boolean affine function"""
-    def __init__(self, generator: ttf.Tensor2[Channels, Width], bias: ttf.Tensor1[Channels], name: str = 'AffineConvolutionalCode'):
+    def __init__(self, generator, bias, name: str = 'AffineConvolutionalCode'):
         self.validate_inputs(generator, bias)
 
         self.generator = generator
@@ -264,11 +260,11 @@ class AffineConvolutionalCode(GeneralizedConvolutionalCode):
         
         window = self.generator.shape[1]
 
-        self._generator_filter: ttf.Tensor3[Width, InChannels, Channels] = tf.cast(tf.transpose(self.generator, perm=[1, 0])[:, None, :], dtype=tf.float32)
+        self._generator_filter = tf.cast(tf.transpose(self.generator, perm=[1, 0])[:, None, :], dtype=tf.float32)
 
         # Create the table
-        self.code_inputs: ttf.Tensor2[Batch, Time] = typing.cast(ttf.Tensor2[Batch, Time], enumerate_binary_inputs(window))
-        table: ttf.Tensor2[CodeInputs, Channels] = typing.cast(ttf.Tensor3[CodeInputs, Time, Channels], self._encode(self.code_inputs))[:, 0, :]
+        self.code_inputs = enumerate_binary_inputs(window)
+        table = self._encode(self.code_inputs)[:, 0, :]
         
         super().__init__(table, name=name)
 
@@ -278,25 +274,25 @@ class AffineConvolutionalCode(GeneralizedConvolutionalCode):
         tf.debugging.assert_type(bias, tf_type=tf.int32)
         assert generator.shape[0] == bias.shape[0]
     
-    # def call(self, msg: ttf.Tensor3[Batch, Time, Channels]) -> ttf.Tensor3[Batch, Time, Channels]:
+    # def call(self, msg):
     #     """
     #     Assumes message is a binary stream (1 channel).
     #     """
     #     return super().call(msg)
         # TODO: Don't use optimizations for now
         # msg_channel_0 = tf.ensure_shape(msg, (None, None, self.k))[:, :, 0]
-        # msg_prepended: ttf.Tensor2[Batch, Time] = tf.pad(msg_channel_0, paddings=tf.constant([[0, 0], [self.window-1, 0]]))
+        # msg_prepended = tf.pad(msg_channel_0, paddings=tf.constant([[0, 0], [self.window-1, 0]]))
         # return self._encode(msg_prepended)
         
     # TODO: Optimization, not used
-    def _encode(self, msg: ttf.Tensor2[Batch, Time]) -> ttf.Tensor3[Batch, Time, Channels]:
+    def _encode(self, msg):
         """
         Actual logic for encoding, is not responsible for padding with initial state.
         Assumes that the message only has 1 channel (and thus channel dimension is reduced out).
         """
         # Convolve generator over message to efficiently get outputs
-        conv_msg_input: ttf.Tensor3[Batch, Time, InChannels] = tf.cast(msg[:,:,None], dtype=tf.float32)
-        conv_output: ttf.Tensor3[Batch, Time, Channels] = tf.cast(tf.nn.conv1d(conv_msg_input, self._generator_filter, stride=1, padding='VALID'), dtype=tf.int32)
+        conv_msg_input = tf.cast(msg[:,:,None], dtype=tf.float32)
+        conv_output = tf.cast(tf.nn.conv1d(conv_msg_input, self._generator_filter, stride=1, padding='VALID'), dtype=tf.int32)
         return tf.cast((conv_output + self.bias[None, None, :]) % 2, dtype=tf.float32)
     
     def to_rc(self):
