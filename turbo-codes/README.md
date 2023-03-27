@@ -114,6 +114,8 @@ python ./turbo_nonsystematic_benchmark.py turbo-755-0 basic --block_len 100 --nu
 
 They will run the above encoder for a total of 1,000,000 test samples.
 
+**To run TurboAE, you will need to use the [original author's code](https://github.com/yihanjiang/turboae)**
+
 **Before running these I recommend trying a quicker command to make sure you have any issues sorted out:**
 ```
 python ./turbo_systematic_benchmark.py turbo-155-7 hazzys --block_len 100 --num_batches 2 --batch_size 10000 --num_iter 6 --snr_test_start -3 --snr_test_end 3 --snr_points 2 --channel awgn --write_logfile
